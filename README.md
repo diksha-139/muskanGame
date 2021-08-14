@@ -1,2 +1,1 @@
-# Muskan
-Capstone Project
+# Boiler-plate-code
