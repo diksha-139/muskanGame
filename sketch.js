@@ -13,15 +13,10 @@ var score;
 
 function preload(){
   
-  theif_running = loadAnimation("Theif 1.png","Theif 2.png","Theif 3.png","Theif 4.png","Theif 5.png","Theif 6.png");
+  theif_running = loadAnimation("Theif1.png","Theif2.png","Theif3.png","Theif4.png","Theif5.png","Theif6.png");
   backgroundImage = loadImage("city background.jpg")
   
-  coin1 = loadImage("coin (1).png");
-  coin2 = loadImage("coin (2).png");
-  coin3 = loadImage("coin (3).png");
-  coin4 = loadImage("coin (4).png");
-  coin5 = loadImage("coin (5).png");
-  coin6 = loadImage("coin (6).png");
+  coinImg=loadAnimation("coin1.png","coin2.png","coin3.png","coin4.png","coin5.png","coin6.png")
 
 }
 
@@ -50,8 +45,13 @@ function draw() {
  if(background1.x <270){
   background1.x = background1.width /2;
  }
-  
+  spawnCoins()
   drawSprites();
 
 }
-
+ function spawnCoins(){
+   if(frameCount % 60 ===0){
+     var coin= createSprite(600,Math.round(random(10,50)));
+     coin.addAnimation("coins",coinImg)
+   }
+ }
